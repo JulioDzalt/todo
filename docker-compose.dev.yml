@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+
+  app_todos:
+    image: mini_api_dev
+    ports:
+      - 3000:90
+    volumes:
+      - /home/julio/Desktop/todo-backend:/code
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 90
+    environment:
+      MYSQL_HOST: bd_todos
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: todos
+  
+  bd_todos:
+    image: mysql:5.7
+    volumes:
+      - /home/julio/Desktop/bd-todo-backend/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: todos
