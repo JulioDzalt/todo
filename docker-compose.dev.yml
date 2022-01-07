@@ -7,7 +7,7 @@ services:
     ports:
       - 3000:90
     volumes:
-      - /home/julio/Desktop/todo-backend:/code
+      - /home/julio/Desktop/todo/todo-backend:/code
     command: uvicorn main:app --reload --host 0.0.0.0 --port 90
     environment:
       MYSQL_HOST: bd_todos
@@ -18,7 +18,7 @@ services:
   bd_todos:
     image: mysql:5.7
     volumes:
-      - /home/julio/Desktop/bd-todo-backend/data:/var/lib/mysql
+      - /home/julio/Desktop/todo/bd-todo-backend/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: todos
